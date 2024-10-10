@@ -4,7 +4,8 @@
 
 #Features:
 
-# Login feature 
+# feature 
+* login
 * events
-- payment methods
--
+* payment methods
+
