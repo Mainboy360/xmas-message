@@ -1,29 +1,34 @@
-<!DOCTYPE html>
-
 <html>
 <head>
-  <meta http-equiv="CONTENT-TYPE" content="text/html; charset=UTF-8">
-  <link rel="stylesheet" href="styles/style.css"/>
-  <title>Flim</title>
+<style>
+    #snowflakes-container {
+        width: 100%x;
+        height: 100%;
+        
+        
+    }
+</style>
 </head>
-<body>
-  <div class="navigation">
-    <h3 class="logo">Logo section</h3>
-    <div class="menu">
-      <p class="home">Home</p>
-      <p class="about">About</p>
-    </div>
-  </div>
-  <div class="paragraph">
-    <!-- <h2 class="welcome">Welcome</h2> -->
-    <h2 class="flim-info">Welcome to Fire of Libration Interdenomination Ministries</h2>
-    <p class="flim-into2">At Flim, we believe is the second coming of the Holy Spirit,
-      and we have a vision that eveybody can be used by God irrespective of tribe or race.
-      
-    </p>
-    <p class="quote">It was founded by Apostle Fabian Nna</p>
-  </div>
+<body style="background-color: black">
+    <div id="snowflakes-container"></div>
     
- 
-</body>
+    <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
+    <script>
+        var snowflakes = new Snowflakes({
+            color: '#fff', // Default: "#5ECDEF"
+            container: document.querySelector('#snowflakes-container'), // Default: document.body
+            count: 50, // 100 snowflakes. Default: 50
+            minOpacity: 0.1, // From 0 to 1. Default: 0.6
+            maxOpacity: 0.95, // From 0 to 1. Default: 1
+            minSize: 10, // Default: 10
+            maxSize: 100, // Default: 25
+            rotation: true, // Default: true
+            speed: 5, // The property affects the speed of falling. Default: 1
+            wind: true, // Without wind. Default: true
+           
+             // Default: 9999,
+            autoResize: true // Default: true
+        });
+    </script>
+  </body>
 </html>
