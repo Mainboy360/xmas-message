@@ -1,37 +1,102 @@
-<html>
+<!DOCTYPE html>
+
+<html lang="en-UK"> 
 <head>
-<style>
-    #snowflakes-container {
-        width: 100%x;
-        height: 100%;
-        
-        
+  <meta http-equiv="CONTENT-TYPE" content="text/html">
+  <meta charset="UTF-8">
+  <title>Merry Christmas!!</title>
+  <style>
+  
+  *{
+    margin: 0px;
+    padding: 0px;
+  }
+  
+    img[src$="png"]{
+      align-self: flex-end; 
     }
-</style>
+  
+  .snowman-container{
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    height: 100vh;
+  }
+  </style>
 </head>
 <body style="background-color: black">
-    <div id="snowflakes-container"></div>
+  <div class="snowman-container">
+    <img src="images/snowman.png" alt="snowman"> 
+  </div>
+  <script>
+    const NUMBER_OF_SNOWFLAKES = 500;
+    const MAX_SNOWFLAKE_SIZE = 2;
+    const MAX_SNOWFLAKE_SPEED = 2;
+    const SNOWFLAKE_COLOUR = '#fff';
+    const snowflakes = [];
+
+    const canvas = document.createElement('canvas');
+    canvas.style.position = 'absolute';
+    canvas.style.pointerEvents = 'none';
+    canvas.style.top = '0px';
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+    document.body.appendChild(canvas);
+
+    const ctx = canvas.getContext('2d');
     
-      <script src="https://unpkg.com/magic-snowflakes/dist/snowflakes.min.js"></script>
-    <script>
-        var snowflakes = new Snowflakes({
-            color: '#fff', // Default: "#5ECDEF"
-            container: document.querySelector('#snowflakes-container'), // Default: document.body
-            count: 100, // 100 snowflakes. Default: 50
-            minOpacity: 0.1, // From 0 to 1. Default: 0.6
-            maxOpacity: 0.95, // From 0 to 1. Default: 1
-            minSize: 20, // Default: 10
-            maxSize: 50, // Default: 25
-            rotation: true, // Default: true
-            speed: 1, // The property affects the speed of falling. Default: 1
-            wind: true, // Without wind. Default: true
-             // Default: width of container
-             // Default: height of container
-            zIndex: 100, // Default: 9999,
-            autoResize: true // Default: true
+    
+    const createSnowflake = () => ({
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        radius: Math.floor(Math.random() * MAX_SNOWFLAKE_SIZE) + 1,
+        color: SNOWFLAKE_COLOUR,
+        speed: Math.random() * MAX_SNOWFLAKE_SPEED + 1,
+        sway: Math.random() - 0.5 // next
+      });
+
+    const drawSnowflake = snowflake => {
+        ctx.beginPath();
+        ctx.arc(snowflake.x, snowflake.y, snowflake.radius, 0, Math.PI * 2);
+        ctx.fillStyle = snowflake.color;
+        ctx.fill();
+        ctx.closePath();
+      }
+
+    const updateSnowflake = snowflake => {
+        snowflake.y += snowflake.speed;
+        snowflake.x += snowflake.sway; // next
+        if (snowflake.y > canvas.height) {
+            Object.assign(snowflake, createSnowflake());
+        }
+    }
+
+    const animate = () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+        snowflakes.forEach(snowflake => {
+            updateSnowflake(snowflake);
+            drawSnowflake(snowflake);
         });
-    </script>
     
+        requestAnimationFrame(animate);
+    }
+
+    for (let i = 0; i < NUMBER_OF_SNOWFLAKES; i++) {
+        snowflakes.push(createSnowflake());
+    }
     
-  </body>
+    window.addEventListener('resize', () => {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+    });
+
+    window.addEventListener('scroll', () => {
+        canvas.style.top = `${window.scrollY}px`;
+    });
+    
+    // setInterval(animate, 15);
+    animate()
+  </script>
+</body>
 </html>
