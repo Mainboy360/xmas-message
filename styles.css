@@ -1,0 +1,69 @@
+*{
+  margin: 0px;
+  padding: 0px;
+}
+
+.top-decoration-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.single-xmas-box {
+  margin-top: 400px;
+}
+
+
+img[src*="gift-box-svgrepo.svg"] {
+  width: 50px;
+  height: 100%;
+}
+
+img[src*="xmas-box-alone"] {
+  width: 700px;
+  height: 100%;
+}
+
+img[src$="svg"]{
+  width: 100px;
+} 
+
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  color: black;
+  font-style: italic;
+  margin-top: 300px;
+}
+
+.copy-right-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  gap: 50px;
+  font-style: italic; 
+}
+
+
+.gift-and-all-rights  {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  color: black;
+  gap: 20px;
+  font-style: italic;
+}
+
+
+.snowman-container {
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  height: 70vh;
+} 
+
+img[src*="snowman"] {
+  align-self: flex-end;
+} 

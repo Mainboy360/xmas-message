@@ -1,36 +1,44 @@
 <!DOCTYPE html>
-
 <html lang="en-UK"> 
 <head>
   <meta http-equiv="CONTENT-TYPE" content="text/html">
   <meta charset="UTF-8">
-  <title>Merry Christmas!!</title>
-  <style>
-  
-  *{
-    margin: 0px;
-    padding: 0px;
-  }
-  
-    img[src$="png"]{
-      align-self: flex-end; 
-    }
-  
-  .snowman-container{
-    display: flex;
-    justify-content: flex-end;
-    flex-direction: column;
-    height: 100vh;
-  }
-  </style>
+  <link rel="stylesheet" href="styles.css">
+  <title>Merry Christmas!! from Solomon</title>
 </head>
-<body style="background-color: black">
-  <div class="snowman-container">
-    <img src="images/snowman.png" alt="snowman"> 
+<body style="background-color: white">
+  
+  <div class="top-decoration-container">
+    <img src="images/xmax-box-with-rope-and-ball.png" alt="xmax box with rope">
   </div>
-  <script>
-    const NUMBER_OF_SNOWFLAKES = 500;
-    const MAX_SNOWFLAKE_SIZE = 4;
+  <div class="single-xmas-box">
+      <img src="images/xmas-box-alone.png" alt="xmas box">
+  </div>
+  <footer>
+    <div class="footer-container">
+      <div class="copy-right-container">
+        <h1 style="color: black">&copy;</h1>
+        <h1 style="color: white">&nbsp; solomon</h1>
+      </div>
+    </div>
+    <div class="gift-and-all-rights">
+       <img src="images/open-gift-box.svg" alt="open gift box">
+       <h1>2024, all right Reserved</h1>
+     </div>
+  </footer>
+  
+  <div class="snowman-container">
+    <img src="images/snowman.png">
+  </div>
+  
+  
+  
+  
+  
+  <!---snow section--->
+   <script>
+    const NUMBER_OF_SNOWFLAKES = 1000;
+    const MAX_SNOWFLAKE_SIZE = 10;
     const MAX_SNOWFLAKE_SPEED = 2;
     const SNOWFLAKE_COLOUR = '#fff';
     const snowflakes = [];
