@@ -161,3 +161,6 @@ img[src*="snowman"] {
   align-self: flex-end;
 } 
 
+img[src*="christmas-tree"]{
+  width: 150px;
+}
